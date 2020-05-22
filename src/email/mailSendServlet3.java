@@ -44,7 +44,6 @@ public class mailSendServlet3 extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		String name = request.getParameter("name");
 		String sender = request.getParameter("sender");
 		String receiver = request.getParameter("receiver");
 		String subject = request.getParameter("subject");
@@ -71,7 +70,7 @@ public class mailSendServlet3 extends HttpServlet {
 			message.setReplyTo(new Address[]{sender_address});
 			message.addRecipient(Message.RecipientType.TO, receiver_address);
 			message.setSubject(subject);
-			message.setContent("보낸사람 : "+name+", email : "+sender_address+"<br/>"+content,"text/html;charset=UTF-8");
+			message.setContent("email : "+sender_address+"<br/>"+content,"text/html;charset=UTF-8");
 			message.setSentDate(new java.util.Date());
 			message.saveChanges();
 			Transport.send(message);

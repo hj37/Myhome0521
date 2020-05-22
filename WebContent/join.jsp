@@ -56,6 +56,32 @@
  
  </script>
  
+ 
+ 	<script type="text/javascript">
+ 	function openmail(){//아래의 아이디중복체크 버튼 눌렀을때 호출되는 함수 
+ 		//1. 아이디를 입력했는지 검사
+ 		//아이디를 입력하지 않았다면
+ 		if(document.f.email.value == ""){
+ 			alert("이메일을 입력하세요.");
+ 			//아이디 입력 <input>태그에 포커스깜빡
+ 			document.f.email.focus();
+ 			return;
+ 		}
+ 		//아이디를 입력 했다면
+ 		//입력한 아이디를 얻는다.
+ 		var femail = document.f.email.value;
+ 		var check = -1;
+ 		
+ 		//새 창을 join_IDCheck.jsp로 띄우며 전달값으로 바로위에 입력한 아이디를 전달함
+ 		// 새 창의 width와 height를 크기를 지정
+ 		window.open("join_IDCheck2.jsp?email="+femail+"&check="+check,"","width=400,height=200");
+ 		
+ 	
+ 	}
+ 
+ 
+ </script>
+ 
 	</head>
 	<body>
 
@@ -112,6 +138,8 @@
 							<div class="12u">
 								<label>E-Mail</label>
 								<input type="email" name="email"  placeholder="Email" />
+								<input type="button" value="이메일인증" class="button alt" onclick="openmail()"><br>			
+								
 							</div>
 						</div>
 						

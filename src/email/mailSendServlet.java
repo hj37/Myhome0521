@@ -48,6 +48,7 @@ public class mailSendServlet extends HttpServlet {
 		String receiver = request.getParameter("receiver");
 		String subject = request.getParameter("subject");
 		String content = request.getParameter("content");
+		String pass = request.getParameter("pass");
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		
@@ -74,9 +75,13 @@ public class mailSendServlet extends HttpServlet {
 			Transport.send(message);
 			out.println("<script>");
 			out.println("alert('메일이 성공적으로 발송되었습니다')");
-			out.println("</script>");
+			out.println("location.href='join_IDCheck2.jsp?check=1&pass="+pass+"'");
+			out.println(" </script>");
 		} catch (Exception e) {
-			out.println("SMTP 서버가 잘못설정되었거나 서비스에 문제가 있습니다.");
+			out.println("<script>");
+			out.println("alert('뭔가 잘못되었습니다.')");
+			out.println("location.href='join_IDCheck2.jsp?check=0'");
+			out.println("</script>");
 			e.printStackTrace();
 		}
 		
