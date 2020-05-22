@@ -108,38 +108,12 @@
 		<!-- Wrapper -->
 			<div class="wrapper style1">
 				<!-- Header -->
-					<div id="header" class="skel-panels-fixed">
-						<div id="logo">
-							<h1><a href="index.jsp">Giants</a></h1>
-							<span class="tag">커뮤니티 게시판</span>
-						</div>
-						<nav id="nav">
-							<ul>
-								<li class="active"><a href="index.jsp">Homepage</a></li>
-								<li><a href="left-sidebar.html">Left Sidebar</a></li>
-								<li><a href="right-sidebar.html">Right Sidebar</a></li>
-								<li><a href="board.jsp">커뮤니티 게시판</a></li>
-								<%
-									if("".equals(session.getAttribute("id")) || session.getAttribute("id") == null){
-							
-								%>
-								<li><a href="login.jsp">Login</a></li>
-								<%
-									}else{
-										%>
-								<li><a href="logout.jsp">Logout</a></li>
-										<% 
-									}
-								%>								<li><a href="mypage.jsp">Mypage</a></li>
-								
-							</ul>
-						</nav>
-					</div>
+								<jsp:include page="header.jsp"/>
 					
 							<!-- Banner -->
 					<div id="banner" class="container">
 						<section>
-							<p>롯데 자이언츠 커뮤니티 게시판</p>
+							<p><a href="board.jsp">롯데 자이언츠 커뮤니티 게시판</a></p>
 						</section>
 					</div>
 			
@@ -257,18 +231,8 @@
 	</div>
 
     	<!-- Copyright -->
-		<div id="copyright">
-			<div class="container">
-				<div class="copyright">
-					<p>Design: <a href="http://templated.co">TEMPLATED</a> Images: <a href="http://unsplash.com">Unsplash</a> (<a href="http://unsplash.com/cc0">CC0</a>)</p>
-					<ul class="icons">
-						<li><a href="#" class="fa fa-facebook"><span>Facebook</span></a></li>
-						<li><a href="#" class="fa fa-twitter"><span>Twitter</span></a></li>
-						<li><a href="#" class="fa fa-google-plus"><span>Google+</span></a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
+				<jsp:include page="bottom.jsp"/>
+
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
