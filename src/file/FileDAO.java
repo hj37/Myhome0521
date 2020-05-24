@@ -25,13 +25,14 @@ public class FileDAO {
 		}
 		
 		
-	public int upload(String fileName, String fileRealName) {
+	public int upload(String fileName, String fileRealName,String id) {
 		try {
 			con = getConnection();
 			String sql = "insert into file values(?,?,0)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, fileName);
 			pstmt.setString(2, fileRealName);
+			pstmt.setString(3,id);
 			return pstmt.executeUpdate();
 			
 		}catch(Exception e) {
@@ -68,6 +69,7 @@ public class FileDAO {
 				file.setFileName(rs.getString(1));
 				file.setFileRealName(rs.getString(2));
 				file.setDownloadCount(rs.getInt(3));
+				file.setId(rs.getString(4));
 				list.add(file);
 			}
 		}catch(Exception e) {

@@ -15,6 +15,7 @@
 <body>
 	<%
 		String directory = "/Users/hojin/Desktop/jsp/upload/";
+		String id = (String)session.getAttribute("id");
 		int maxSize = 1024 * 1024 * 100;
 		String encoding = "UTF-8";
 		
@@ -38,7 +39,7 @@
 			out.write("업로드할 수 없는 확장자입니다.");
 			
 		}else{
-			new FileDAO().upload(fileName,fileRealName);
+			new FileDAO().upload(fileName,fileRealName,id);
 			out.write("파일명: " + fileName + "<br>");
 			out.write("실제 파일명:" + fileRealName + "<br>");
 		}

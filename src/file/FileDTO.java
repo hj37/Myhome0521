@@ -4,7 +4,16 @@ public class FileDTO {
 	String fileName;
 	String fileRealName;
 	int downloadCount;
+	String id;
 	
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
 	public int getDownloadCount() {
 		return downloadCount;
 	}
